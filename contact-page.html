@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gloria Washington - Web Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-page {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+        }
+
+        #contact-form {
+            display: grid;
+            gap: 10px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main">
+            <div class="info">
+                <!-- Existing content -->
+                <div class="buttons">
+                    <button>Download CV</button>
+                    <button id="show-contact-form">Contact Me</button>
+                </div>
+            </div>
+
+            <div class="additional-content">
+                <!-- Existing content -->
+            </div>
+        </div>
+        <div class="devimg">
+            <img src="images/main.png" alt="Gloria Washington - Web Developer">
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact-page" class="contact-page" style="display: none;">
+        <h2>Contact Me</h2>
+        <form id="contact-form" action="process-contact.php" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var contactPage = document.getElementById("contact-page");
+            var contactButton = document.getElementById("show-contact-form");
+
+            contactButton.addEventListener("click", function () {
+                contactPage.style.display = 'block';
+            });
+
+            var contactForm = document.getElementById("contact-form");
+            contactForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+                
+                alert("Form submitted!");
+                
+                contactPage.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
